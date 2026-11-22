@@ -5,7 +5,9 @@ Below there is a minimal example and an extended synopsis for using the engine.
 A minimal example for a 4x4 maze that can be quickly ran on a laptop is achieved using the following commands
 
   python main.py 4 --full-npz 4x4
+
   python src/render_final_frame.py data/4x4.npz
+
   python src/visualization.py data/4x4.npz 4x4.mp4
 
 The first command runs a simulation of a 4x4 maze with standard parameters.
