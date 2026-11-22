@@ -1,4 +1,4 @@
-The repository hold the source code and numerical results for simulating Force-Aligning Active Brownian Particles (FAABP) pushing a payload in a maze environment.
+The repository holds the source code and numerical results for simulating Force-Aligning Active Brownian Particles (FAABP) pushing a payload in a maze environment.
 The results are found in Figures directory and associated with the figures in the mansucript.
 The simulation core is found in src and includes:
   1. Numerical engine simulating FAABPs with control over particles radius, self-propulsion speed, curvity, and persistence length.
