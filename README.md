@@ -7,6 +7,7 @@ The repository holds the results (A) and source code (B) of the numerical engine
     3. Communication and score relaying
     4. Maze generation
     5. Maze solving using a swarm 
+    6. Video and figure rendering scripts
 
 
 **References**
