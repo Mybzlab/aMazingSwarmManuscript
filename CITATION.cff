@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+  - family-names: "Calvo"
+    given-names: "Eduardo"
+    orcid: "https://orcid.org/0009-0005-8885-1479"
+  - family-names: "Ben Zion"
+    given-anmes: "Matan Yah"
+    orcid: "https://orcid.org/0000-0002-9876-787X"
+title: "A mazing swarm transports a payload to target using embodied and decentralized
+interactions"
+version: 1.0.0
+date-released: 2026-11-22
