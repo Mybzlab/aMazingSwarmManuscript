@@ -1,4 +1,5 @@
-# {A mazing swarm transports a payload to target using embodied and decentralized interactions --- Supplementary Files
+# A mazing swarm transports a payload to target using embodied and decentralized interactions
+# Supplementary Files
 The repository holds the (1) results, (2) video processing scripts, (3) robot design files, and (4) simulation source code supplementing the manuscript.
 <p align = "center">
 <img width="400" height="400" alt="Payload's trajectory before and after maze pruning" src="https://github.com/user-attachments/assets/ffa3bf11-5ede-4fe6-a17c-7650e323139e" />
