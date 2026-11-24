@@ -24,7 +24,7 @@ from matplotlib.colors import Normalize
 
 
 # ── Style constants (same values as figures/fig6/f/render_final_frame.py) ─────
-MAXCOLOR_SCORE_BY_G = {4:4, 5: 5, 6:5, 10: 10, 20: 20, 30: 35}
+MAXCOLOR_SCORE_BY_G = {4:4, 5: 5, 6:5, 10: 5, 20: 20, 30: 35}
 SCORE_CMAP = plt.get_cmap('viridis')
 NO_SCORE_COLOR = (0.5, 0.5, 0.5, 1.0)
 PARTICLE_ALPHA = 0.7
@@ -215,7 +215,7 @@ def create_payload_animation(positions, orientations, velocities, payload_positi
     edge_color = curvity_color(0)
     face_color = colors_for(0)
     scatter = ax.scatter(positions[frames[0], :, 0], positions[frames[0], :, 1],
-                         s=marker_area, c=face_color, edgecolors=edge_color, linewidths=3, zorder=9)
+                         s=marker_area, c=face_color, edgecolors=edge_color, linewidths=2.5, zorder=9)
     
     # Payload: Perlin-noise textured disc, clipped to a circle, moved every frame
     tex = _payload_texture()
