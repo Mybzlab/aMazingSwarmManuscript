@@ -22,7 +22,7 @@ Runs the swarm-and-payload maze simulation and saves an NPZ. A "light" NPZ is th
 
 ****Example:****
 
-`python main.py 10 run_name --discrete-curvity --full-npz --corner-init --out-dir E:/directory/example/data/`
+`python main.py 10 run_name --discrete-curvity --full-npz --corner-init --out-dir ./data/`
 
 Positional arguments:
 
