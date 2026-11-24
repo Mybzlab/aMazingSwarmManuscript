@@ -4,11 +4,11 @@ Below there is a minimal example and an extended synopsis for using the engine.
 **Minimal Example**
 A minimal example for a 4x4 maze that can be quickly ran on a laptop is achieved using the following commands
 
-  python main.py 4 --full-npz 4x4
+  `python main.py 4 --full-npz 4x4`
 
-  python src/render_final_frame.py data/4x4.npz
+  `python src/render_final_frame.py data/4x4.npz`
 
-  python src/visualization.py data/4x4.npz 4x4.mp4
+  `python src/visualization.py data/4x4.npz 4x4.mp4`
 
 The first command runs a simulation of a 4x4 maze with standard parameters.
 The second command generates the final frame showing the payload's trajectory from entry to final step and the location of the active particles in the final step.
@@ -16,13 +16,13 @@ The third command generates a video from the simulation data showing the progres
 
 **Extended Synopsis**  
 
-***Simulation  
+***Simulation***  
 Run a simulation: main.py
 Runs the swarm-and-payload maze simulation and saves an NPZ. A "light" NPZ is the default, with no video.
 
-Example:
+****Example:****
 
-python main.py 10 run_name --discrete-curvity --full-npz --corner-init --out-dir E:/directory/example/data/
+`python main.py 10 run_name --discrete-curvity --full-npz --corner-init --out-dir E:/directory/example/data/`
 
 Positional arguments:
 
@@ -48,13 +48,13 @@ Flags:
 --vote-polarity: hard ±1 curvity from a majority vote of the lowest-score neighbours. This overrides --discrete-curvity.
 --diffusion-init-rule: Ignores neighbours that still hold the default score, and starts curvity at its max value (default: 1).
 
-***Render final frame  
+***Render final frame***  
 Render a final-frame PNG: src/render_final_frame.py
 Draws the last saved frame with particles, payload path, walls and goal. It works on "light" NPZs.
 
-Example:
+****Example:****
 
-python src/render_final_frame.py data/run_name.npz --vmax 10 --no-inset
+`python src/render_final_frame.py data/run_name.npz --vmax 10 --no-inset`
 
 Positional argument:
 
@@ -64,14 +64,14 @@ Flags:
 --vmax N: score value where the colormap saturates.
 --no-inset: skip the payload zoom inset.
 
-***Render Video  
+***Render Video***  
 
 Render an mp4 from a saved NPZ: src/visualization.py
 Turns a full NPZ into a video. The run must have used --video or --full-npz.
 
-Example:
+****Example:****
 
-python src/visualization.py data/run_name.npz out.mp4 --fps 15 --vmax 10
+`python src/visualization.py data/run_name.npz out.mp4 --fps 15 --vmax 10`
 
 Positional arguments:
 
