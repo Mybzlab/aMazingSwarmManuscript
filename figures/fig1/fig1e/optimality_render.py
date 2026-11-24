@@ -346,13 +346,13 @@ if __name__ == "__main__":
             lo = np.array(PAYLOAD_GRAY_LIGHT); hi = np.array(PAYLOAD_GRAY_DARK)
             tex = lo + (hi - lo) * noise[..., None]
             xlim, ylim = ax.get_xlim(), ax.get_ylim()
-            im = ax.imshow(tex, extent=(cx - payload_radius, cx + payload_radius,
-                                        cy - payload_radius, cy + payload_radius),
+            im = ax.imshow(tex, extent=(cx - payload_radius/2, cx + payload_radius/2,
+                                        cy - payload_radius/2, cy + payload_radius/2),
                            origin='lower', interpolation='bilinear', alpha=1.0, zorder=10.5)
-            clip = mpatches.Circle((cx, cy), radius=payload_radius, transform=ax.transData)
+            clip = mpatches.Circle((cx, cy), radius=payload_radius/2, transform=ax.transData)
             im.set_clip_path(clip)
             ax.set_xlim(xlim); ax.set_ylim(ylim); ax.set_aspect('equal')
-            ax.add_patch(mpatches.Circle((cx, cy), radius=payload_radius,
+            ax.add_patch(mpatches.Circle((cx, cy), radius=payload_radius/2,
                                          facecolor='none', edgecolor='#282828',
                                          linewidth=1.0, zorder=10.6))
 
