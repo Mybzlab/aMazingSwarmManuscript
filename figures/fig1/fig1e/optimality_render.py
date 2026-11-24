@@ -137,22 +137,14 @@ def perlin_noise(size, cells, octaves=1, seed=0):
 
 
 def curvity_color(c):
-    """Neg curvity → #F46036, zero → light gray, pos curvity → #007FFF (azure)."""
-    c = float(np.clip(c, -1, 1))
-    gray = (0.62, 0.62, 0.62)
+    """Neg curvity → #FF9B00 (dutch orange), non-negative curvity → #8ED64C (snot green)."""
     if c < 0:
-        t = c + 1   # 0 at c=-1, 1 at c=0
-        # #FF5500 = (1.0, 0.333, 0.0) — neon orange
-        return (t * gray[0] + (1 - t) * 1.000,
-                t * gray[1] + (1 - t) * 0.333,
-                t * gray[2] + (1 - t) * 0.000)
-    else:
-        t = c       # 0 at c=0, 1 at c=+1
-        # #00AAFF = (0.0, 0.667, 1.0) — neon azure
-        return (gray[0] + t * (0.000 - gray[0]),
-                gray[1] + t * (0.667 - gray[1]),
-                gray[2] + t * (1.000 - gray[2]))
 
+        return "#FF9B00"
+
+    else:
+
+        return "#8ED64C"
 
 
 # ── Main ──────────────────────────────────────────────────────────────────────
@@ -323,6 +315,8 @@ if __name__ == "__main__":
         else:
             colors = [curvity_color(c) for c in last_curvity]
 
+        edge_colors = [curvity_color(c) for c in last_curvity]
+
         r = float(particle_radius[0]) if particle_radius.ndim > 0 else float(particle_radius)
         if box_size > 1200:
             min_r = box_size / 600.0
@@ -333,7 +327,7 @@ if __name__ == "__main__":
         display_radii = np.maximum(particle_radius, min_r) * PARTICLE_RADIUS_SCALE
         circles = [mpatches.Circle((x, y), radius=ri)
                    for (x, y), ri in zip(last_positions, display_radii)]
-        pc = PatchCollection(circles, facecolors=colors, edgecolor='k', alpha=0.75, linewidths=0.2, zorder=6)
+        pc = PatchCollection(circles, facecolors=colors, edgecolor=edge_colors, alpha=0.75, linewidths=1, zorder=6)
         ax.add_collection(pc)
 
         # For small maps (G2) label every particle in the main view
@@ -382,6 +376,31 @@ if __name__ == "__main__":
                 mlines.Line2D([], [], color=PRUNED_PATH_COLOR, alpha=1.0,  linewidth=2.5,
                               label='Adapted path'),
             ]
+    # Add legend entries to denote particles curvity (on edge color)
+        legend_handles += [mlines.Line2D(
+            [], [], 
+            marker='o', 
+            color='none',             # Makes the connecting line fully transparent
+            linestyle='None',         # Disables line rendering entirely
+            markerfacecolor='none',   # Makes the inside of the circle transparent
+            markeredgecolor="#FF9B00",  # The color of the circle's border Dutch orange
+            markeredgewidth=2,        # The thickness of the circle's border
+            markersize=12, 
+            label= r'$\kappa <0$')]
+
+        legend_handles += [mlines.Line2D(
+                    [], [], 
+                    marker='o', 
+                    color='none',             # Makes the connecting line fully transparent
+                    linestyle='None',         # Disables line rendering entirely
+                    markerfacecolor='none',   # Makes the inside of the circle transparent
+                    markeredgecolor = "#8ED64C",  # The color of the circle's border Snot Green for alingers
+                    markeredgewidth=2,        # The thickness of the circle's border
+                    markersize=12, 
+                    label= r'$\kappa \geq 0$')]    
+
+
+        
         leg = ax.legend(
             handles=legend_handles,
             loc='upper left',
