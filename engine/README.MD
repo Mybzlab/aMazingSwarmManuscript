@@ -14,8 +14,9 @@ The first command runs a simulation of a 4x4 maze with standard parameters.
 The second command generates the final frame showing the payload's trajectory from entry to final step and the location of the active particles in the final step.
 The third command generates a video from the simulation data showing the progress of the payload and the motion of the particles.
 
-**Extended Synopsis**
-***Simulation
+**Extended Synopsis**  
+
+***Simulation  
 Run a simulation: main.py
 Runs the swarm-and-payload maze simulation and saves an NPZ. A "light" NPZ is the default, with no video.
 
@@ -47,7 +48,7 @@ Flags:
 --vote-polarity: hard ±1 curvity from a majority vote of the lowest-score neighbours. This overrides --discrete-curvity.
 --diffusion-init-rule: Ignores neighbours that still hold the default score, and starts curvity at its max value (default: 1).
 
-***Render final frame
+***Render final frame  
 Render a final-frame PNG: src/render_final_frame.py
 Draws the last saved frame with particles, payload path, walls and goal. It works on "light" NPZs.
 
@@ -63,7 +64,7 @@ Flags:
 --vmax N: score value where the colormap saturates.
 --no-inset: skip the payload zoom inset.
 
-***Render Video
+***Render Video  
 
 Render an mp4 from a saved NPZ: src/visualization.py
 Turns a full NPZ into a video. The run must have used --video or --full-npz.
