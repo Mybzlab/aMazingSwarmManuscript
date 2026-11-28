@@ -230,7 +230,7 @@ def plot_combined():
     ax.set_ylim(1,2.5E2)
     ax.tick_params(axis='both', labelsize=16)
 
-    ax.set_xlabel(r'Mean Particle Density ($N/C^2$)',fontsize=18)
+    ax.set_xlabel(r'Mean Particle Density ($N/C$)',fontsize=18)
     ax.set_ylabel(r'Time to Target  ($L/v_0$)',fontsize=18)
     ax.set_title('Swarm Size Scaling across Maze Sizes\n'
                  r'$t^{**} = t\,v_0/L$;  density $= N/G^2$;  optimum at $t^{**}=1$')
